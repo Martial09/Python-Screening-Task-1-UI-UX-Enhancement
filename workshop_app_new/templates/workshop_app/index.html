@@ -1,0 +1,16 @@
+<!-- workshop_app/templates/index.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Welcome to FOSSEE Workshops</h1>
+      <p class="col-md-8 fs-4">Explore and book our upcoming workshops on Free and Open Source Software in Education. Enhance your skills with expert-led sessions.</p>
+      <a class="btn btn-primary btn-lg" href="{{ url_for('workshops') }}" role="button">View Workshops</a>
+      <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('book') }}" role="button">Book Now</a>
+    </div>
+  </div>
+{% endblock %}
