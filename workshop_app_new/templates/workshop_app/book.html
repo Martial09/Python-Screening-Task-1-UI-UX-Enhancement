@@ -1,0 +1,37 @@
+<!-- workshop_app/templates/book.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Book a Workshop{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <h1 class="mb-4 text-center">Book a Workshop</h1>
+      <div class="card">
+        <div class="card-body">
+          <form method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="workshop_id" class="form-label">Select Workshop</label>
+              <select class="form-select" id="workshop_id" name="workshop_id" required>
+                <option selected disabled value="">Choose...</option>
+                {% for workshop in workshops %}
+                  <option value="{{ workshop['id'] }}">{{ workshop['title'] }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit Booking</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
