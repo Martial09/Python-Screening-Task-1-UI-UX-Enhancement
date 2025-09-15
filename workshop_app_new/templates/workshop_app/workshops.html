@@ -1,0 +1,28 @@
+<!-- workshop_app/templates/workshops.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Available Workshops{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Available Workshops</h1>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for workshop in workshops %}
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ workshop['title'] }}</h5>
+            <p class="card-text">{{ workshop['description'] }}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('book') }}" class="btn btn-primary w-100">Book this Workshop</a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="col">
+        <p>No workshops are available at the moment.</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
